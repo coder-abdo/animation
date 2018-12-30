@@ -1,0 +1,145 @@
+// VARIABLES
+$ff = 'Poppins', sans-serif
+$black = #0f0f10
+$purple = #7128ff
+// MIXINS
+flex($jc = flex-start, $ai = flex-start)
+    display flex
+    justify-content $jc
+    align-items $ai
+bfaf()
+    content ""
+    position absolute
+    display block
+*
+*::before
+*::after
+    padding 0
+    margin 0
+    box-sizing border-box
+
+html
+    height 100%
+    font-size 62.5%
+
+body
+    height 100%
+    font-family $ff
+    color $black
+a
+a:active
+a:visited
+    text-decoration none
+    color currentColor
+li
+ol
+ul
+    list-style none
+.nav
+    flex(space-between, center)
+    height 6rem
+    padding 0 2rem
+    &__logo
+        flex(center, center)
+        font-size 2rem
+        font-weight 700
+        &:hover
+            cursor pointer
+    &__list
+        flex(space-around, center)
+    &__list-item
+        color $black
+    &__link
+        padding 1rem 2rem
+        font-size 1.6rem
+        position relative
+        &::before
+            bfaf()
+            width 30%
+            height 3px
+            bottom 0
+            left 50%
+            background-color $black
+            transform translateX(-50%) scaleX(0)
+            transform-origin center center
+            transition transform 300ms ease-in-out
+        &:hover
+            &::before
+                transform translateX(-50%) scaleX(1)
+    &__utils
+        flex(flex-start, center)
+        .shopping
+            width 4rem
+            height 4rem
+            flex(center, center)
+            &:hover
+                cursor pointer
+            svg
+                width 100%
+#home
+    background-color whitesmoke
+    padding 2rem
+.main-title
+    font-size 2.5rem
+    font-weight 700
+    margin-bottom 2rem
+.slider
+    width 80rem
+    height 50rem
+    overflow hidden
+    margin 0 auto
+    position relative
+    &__wrapper
+        flex()
+        width 240rem
+        height 100%
+        position absolute
+        top 0
+        left 0
+        transition left 1s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+.slide
+    position relative
+    width 80rem
+    &__img
+        width 100%
+        height 48rem
+        position relative
+    &__title
+        position absolute
+        left 10px
+        bottom 5rem
+        font-size 4rem
+        font-weight 700
+        text-transform uppercase
+        color #ffffff
+        opacity 0
+    .count
+        position absolute
+        bottom 5px
+        width 4rem
+        height 4rem
+        flex(center, center)
+        background-color #fff
+        font-size 1.4rem
+        font-weight 700
+        .counting
+            margin-right 3px
+
+.social
+    flex()
+.instagram
+.facebook
+.twiiter
+.linkedin
+    width 2rem
+    height 2rem
+    flex(center, center)
+    margin-right 2rem
+    svg
+        width 100%
+        height 100%
+        transition fill 300ms
+    &:hover
+        cursor pointer
+        svg
+            fill $purple
